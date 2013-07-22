@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  body
+    include github-ribbon
+    if 1
+      include navbar
+    else
+      .container
+        h1: a.title(href="/")
+        h3: a.subtitle(href="/")
+    #content.container-fluid
+      .row-fluid
+        #article.span8
+        #sidebar.span4
+    footer#footer
+      script(src="/js/bundle.min.js")

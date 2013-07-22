@@ -1,0 +1,112 @@
+@fontsize :  (28);
+@fontsize2 : (1.6 / 0.5);
+@h_color : #555;
+@h_bg    : #ddd;
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: @webfont;
+  font-style: oblique;
+  font-weight: 400;
+}
+
+h1 {
+  position:relative;
+  padding:5px 20px;
+  font:bold ~"@{fontsize}px/#{fontsize2} Arial, Helvetica, sans-serif";
+  color:@h_color;
+  background:@h_bg;
+  text-shadow: 1px 1px 0 @h_bg, 2px 2px 0 #999;
+  border-top:@h_color solid 3px;
+  border-bottom:@h_color solid 3px;
+  background-image: -webkit-gradient(linear, left top, right bottom,
+                                     from(rgba(255, 255, 255, 0.0)),
+                                     color-stop(0.4, rgba(255, 255, 255, 0.0)),
+                                     color-stop(0.4, rgba(0, 0, 0, 0.1)),
+                                     color-stop(0.6, rgba(0, 0, 0, 0.1)),
+                                     color-stop(0.6, rgba(255, 255, 255, 0.0)),
+                                     to(rgba(255, 255, 255, 0.0))
+                                    );
+  background-image: -webkit-linear-gradient(top -45deg,
+                                            transparent 40%,
+                                            rgba(0, 0, 0, 0.1) 40%,
+                                            rgba(0, 0, 0, 0.1) 60%,
+                                            transparent 60%
+                                           );
+  background-image: -moz-linear-gradient(top -45deg,
+                                         transparent 40%,
+                                         rgba(0, 0, 0, 0.1) 40%,
+                                         rgba(0, 0, 0, 0.1) 60%,
+                                         transparent 60%
+                                        );
+  background-image: -o-linear-gradient(top -45deg,
+                                       transparent 40%,
+                                       rgba(0, 0, 0, 0.1) 40%,
+                                       rgba(0, 0, 0, 0.1) 60%,
+                                       transparent 60%
+                                      );
+  background-image: linear-gradient(to bottom -45deg,
+                                    transparent 40%,
+                                    rgba(0, 0, 0, 0.1) 40%,
+                                    rgba(0, 0, 0, 0.1) 60%,
+                                    transparent 60%
+                                   );
+  background-size:4px 4px;
+}
+
+h1:before {
+  content:" ";
+  position:absolute;
+  top:100%;
+  left:24px;
+  width:0;
+  height:0;
+  border-width:12px;
+  border-style:solid;
+  border-color:transparent;
+  border-top-color:@h_color;
+}
+
+h1:after {
+  content:" ";
+  position:absolute;
+  top:100%;
+  left:28px;
+  width:0;
+  height:0;
+  border-width:8px;
+  border-style:solid;
+  border-color:transparent;
+  border-top-color:#f0f0f0;
+  z-index:1;
+}
+
+h2 {
+  font-size: 130%;
+  font-weight: normal;
+  border-left:20px solid #669999;
+  // border-right:20px solid #669999;
+  // padding: 8px 0 8px 10px;
+  padding: 0px 0 0px 10px;
+  color: @fg-sub2;
+  background-color: @bg-sub2;
+}
+
+h3 {
+  border-left:7px solid #ccc;
+  padding:.8em .9em;
+}
+
+h3 > span {
+  display: block;
+  padding-top:.2em;
+  font-size:.8em;
+  color:#ccc;
+}
+
+.obi {
+  background-color: #dcdcdc;
+  color:#000066;
+  border-bottom:2px solid #000099;
+  padding:5px 0 5px 10px;
+  line-height:160%;
+}

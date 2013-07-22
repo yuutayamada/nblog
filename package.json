@@ -1,0 +1,27 @@
+{
+  "name": "howdy",
+  "version": "0.0.1",
+  "description": "my blog",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.1.0",
+    "jade": "*",
+    "less-middleware": "*",
+    "glob": "*",
+    "coffeeify": "*",
+    "backbone-browserify": "*",
+    "jquery-browserify": "*",
+    "underscore": "*",
+    "markdown": "*"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-shell": "~0.3.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-coffee": "~0.7.0"
+  }
+}
