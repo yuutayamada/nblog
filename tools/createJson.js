@@ -15,7 +15,6 @@ glob("**/public/articles/*.html", options, function (err, files) {
   getChangedTime((files));
 });
 
-// ---------------------------------
 var path = require("path");
 var dateFormat = function(time) {
   var y = time.getFullYear(),
