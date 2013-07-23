@@ -14,7 +14,6 @@ module.exports = (grunt) ->
       bundle:
         command: [
           "node ./tools/convertHtmlFromMd.js"
-          "mkdir -p ./src/_posted"
           "mv ./src/*.md ./src/_posted/"
           "node ./tools/createJson.js"
           "browserify -d -t coffeeify ./main.coffee > /tmp/bundle.js"
