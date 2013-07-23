@@ -1,5 +1,4 @@
-var fs = require("fs"),
-    savingFileName = __dirname + "/htmlDirectories.json";
+var fs = require("fs");
 
 var write = function(path, jsData) {
   var data = JSON.stringify(jsData);
