@@ -1,4 +1,8 @@
 # this software is work in progress
+## Sample
+
+[example](http://howdyblog.herokuapp.com/)
+
 ## Requirement
 browserify
 
@@ -7,10 +11,3 @@ browserify
 grunt
 
     (sudo) npm install -g grunt
-
-## tutorial
-git clone oge
-
-cd ./
-
-npm install
