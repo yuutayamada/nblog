@@ -16,4 +16,4 @@ window.userConfig =
   coderwall:
     github_account: ''
 
-require "./views/templates/views.js"
+require "./templates/views.js"
