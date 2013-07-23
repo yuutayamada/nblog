@@ -9,7 +9,7 @@ module.exports = (grunt) ->
         options:
           banner: banner
         files:
-          "./public/js/bundle.min.js": ["/tmp/bundle.js"]
+          "./heroku/public/js/bundle.min.js": ["/tmp/bundle.js"]
     shell:
       bundle:
         command: [
@@ -22,7 +22,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          './views/templates/views.js': ['./views/templates/*.coffee']
+          './templates/views.js': ['./templates/*.coffee']
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-shell')
   grunt.loadNpmTasks('grunt-contrib-coffee')

@@ -10,7 +10,7 @@ glob("**/src/*.md", options, function (err, files) {
       if (err) throw err;
       var filename = file.replace("src/", "");
       var htmlfile = filename.replace(/md$/, "html");
-      var writefile = ("./public/articles/" + htmlfile);
+      var writefile = ("./heroku/public/articles/" + htmlfile);
       var htmlContent = md.toHTML(data);
       fs.writeFile(writefile, htmlContent, function(error) {
         if (error) throw error;
