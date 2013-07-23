@@ -8,18 +8,19 @@ ArticleView = Backbone.View.extend({
       html = info["file"]
       time = info["date"]
       modified = "<time datetime='#{time}'>" + time + "</time>"
-      header   = "<header class='header'></header>"
       filename = html.replace("public/", "")
       id   = filename.replace("/", "-")
       name = id
-      appendArticle = (html) ->
+      $.when($.get(filename)).done((articleHtml) ->
         content = "<article id='#{id}' class='article' name='#{name}'>" +
-          html + "</article>"
+          articleHtml + "</article>"
         $.when($("#article").append(content)).done(->
-          $(this).find("[name='#{name}']").find("h1").wrap(header)
-          $(this).find("[name='#{name}']").find("header").prepend(modified)
+          this.renderHeader(this, time, modified)
         )
-      $.when($.get(filename))
-        .done((articleHtml) -> appendArticle(articleHtml))
+      )
+  renderHeader: (that, time, modified) ->
+    header = "<header class='header'></header>"
+    $(that).find("[name='#{name}']").find("h1").wrap(header)
+    $(that).find("[name='#{name}']").find("header").prepend(modified)
 })
 view = new ArticleView({el: '#article'})
