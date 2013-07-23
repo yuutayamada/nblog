@@ -8,13 +8,6 @@ var write = function(path, jsData) {
   });
 };
 
-var glob = require("glob"),
-    options = null; // options is optional
-
-glob("**/public/articles/*.html", options, function (err, files) {
-  getChangedTime((files));
-});
-
 var path = require("path");
 var dateFormat = function(time) {
   var y = time.getFullYear(),
@@ -43,3 +36,10 @@ var getChangedTime = function(filepaths) {
     });
   });
 };
+
+var glob = require("glob"),
+    options = null; // options is optional
+
+glob("**/heroku/public/articles/*.html", options, function (err, files) {
+  getChangedTime((files));
+});
