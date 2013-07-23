@@ -2,10 +2,10 @@ extends layout
 
 block content
   body
-    include github-ribbon
     if 1
       include navbar
     else
+      include github-ribbon
       .container
         h1: a.title(href="/")
         h3: a.subtitle(href="/")
