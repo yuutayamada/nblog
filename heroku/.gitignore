@@ -1,0 +1,5 @@
+node_modules
+public/stylesheets/*.css
+!public/stylesheets/bootstrap-responsive.min.css
+!public/stylesheets/bootstrap.min.css
+/npm-debug.log
