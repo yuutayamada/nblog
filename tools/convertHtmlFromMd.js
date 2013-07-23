@@ -11,10 +11,14 @@ var readArticles = function(file) {
         htmlfile = filename.replace(/md$/, "html"),
         writefile = ("./heroku/public/articles/" + htmlfile),
         htmlContent = md.toHTML(data);
-    fs.writeFile(writefile, htmlContent, function(error) {
-      if (error) throw error;
-      console.log("saved to " + writefile);
-    });
+    writeArticleToHerokuDir(writefile, htmlContent);
+  });
+};
+
+var writeArticleToHerokuDir = function(writefile, htmlContent) {
+  fs.writeFile(writefile, htmlContent, function(error) {
+    if (error) throw error;
+    console.log("saved to " + writefile);
   });
 };
 
