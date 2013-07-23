@@ -3,14 +3,8 @@ ArticleView = Backbone.View.extend({
   initialize: ->
     if fileInfomation.length
       this.renderArticles(userConfig.article.limit)
-  sort: (infomations) ->
-    _.sortBy(infomations, (info) ->
-      return info["date"]
-    ).reverse()
   renderArticles: (limit)->
-    sortedInfo = this.sort(fileInfomation)[0...limit]
-    console.log(sortedInfo)
-    sortedInfo.forEach (info) ->
+    fileInfomation[0...limit].forEach (info) ->
       html = info["file"]
       time = info["date"]
       modified = "<time datetime='#{time}'>" + time + "</time>"
