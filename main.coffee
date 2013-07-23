@@ -10,8 +10,8 @@ window.userConfig =
   coderwall:
     github_account: ''
 
-window.fileInfomation = require "./tools/fileInformation.json"
 window._ = require("underscore")
+window.fileInfomation = require "./tools/fileInformation.json"
 window.jQuery = window.$ = require("jquery-browserify")
 window.Backbone = require("backbone-browserify")
 window.Backbone.$ = $
