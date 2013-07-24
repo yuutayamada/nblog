@@ -11,8 +11,12 @@ ArticleView = Backbone.View.extend({
       filename = html.replace("public/", "")
       id   = index
       name = filename.replace("/", "-")
+      prev = if id == 0 then "" else "<a href='##{id-1}'>Previous</a>"
+      next = "<a href='##{id+1}'>Next</a>"
+      direction = prev + next
       $.when($.get(filename)).done((articleHtml) ->
-        content = "<article id='#{id}' class='article' name='#{name}'>" +
+        content = direction +
+          "<article id='#{id}' class='article' name='#{name}'>" +
           articleHtml + "</article>"
         $.when($("#article").append(content)).done(->
           this.renderHeader(this, time, modified)
