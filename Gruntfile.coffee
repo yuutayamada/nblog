@@ -11,6 +11,8 @@ module.exports = (grunt) ->
         files:
           "./heroku/public/js/bundle.min.js": ["/tmp/bundle.js"]
     shell:
+      develop:
+        command: 'sh ./tools/createlink.sh'
       bundle:
         command: [
           "node ./tools/convertHtmlFromMd.js"
@@ -27,4 +29,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-coffee')
 
   # Default task(s).
-  grunt.registerTask("default", ["coffee", "shell", "uglify"])
+  grunt.registerTask("default", ["coffee", "shell:bundle", "uglify"])
+  grunt.registerTask("develop", ["shell:develop"])
