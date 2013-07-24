@@ -20,8 +20,3 @@ window.jQuery = window.$ = require("jquery-browserify")
 window.Backbone = require("backbone-browserify")
 window.Backbone.$ = $
 
-develop = null
-
-unless develop
-  require "./templates/views.js"
-  require "./router.js"
