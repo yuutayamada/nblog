@@ -4,13 +4,13 @@ ArticleView = Backbone.View.extend({
     if fileInfomation.length
       this.renderArticles(userConfig.article.limit)
   renderArticles: (limit)->
-    fileInfomation[0...limit].forEach (info) ->
+    fileInfomation[0...limit].forEach (info, index) ->
       html = info["file"]
       time = info["date"]
       modified = "<time datetime='#{time}'>" + time + "</time>"
       filename = html.replace("public/", "")
-      id   = filename.replace("/", "-")
-      name = id
+      id   = index
+      name = filename.replace("/", "-")
       $.when($.get(filename)).done((articleHtml) ->
         content = "<article id='#{id}' class='article' name='#{name}'>" +
           articleHtml + "</article>"
