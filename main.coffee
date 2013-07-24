@@ -24,4 +24,4 @@ develop = null
 
 unless develop
   require "./templates/views.js"
-# require "./router.js"
+  require "./router.js"
