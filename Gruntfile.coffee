@@ -11,7 +11,7 @@ module.exports = (grunt) ->
         files:
           "./heroku/public/js/bundle.min.js": ["/tmp/bundle.js"]
     shell:
-      develop:
+      createlink:
         command: 'sh ./tools/createlink.sh'
       bundle:
         command: [
@@ -21,13 +21,19 @@ module.exports = (grunt) ->
           "browserify -d -t coffeeify ./main.coffee > /tmp/bundle.js"
         ].join("&&")
     coffee:
-      compile:
+      views:
         files:
           './templates/views.js': ['./templates/*.coffee']
+      build:
+        files:
+          './dist/build.js': ['./main.coffee', './libs.coffee']
+      build_develop:
+        files:
+          './dist/build-develop.js': ['./main.coffee']
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-shell')
   grunt.loadNpmTasks('grunt-contrib-coffee')
 
   # Default task(s).
-  grunt.registerTask("default", ["coffee", "shell:bundle", "uglify"])
-  grunt.registerTask("develop", ["shell:develop"])
+  grunt.registerTask("default", ["coffee:views", "shell:bundle", "uglify"])
+  grunt.registerTask("develop", ["coffee:build_develop", "shell:createlink"])
