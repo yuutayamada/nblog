@@ -5,25 +5,27 @@ ArticleView = Backbone.View.extend({
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
     info = fileInfomation[index]
-    length = fileInfomation
+    length = fileInfomation.length - 1
     html = info["file"]
     time = info["date"]
     modified = "<time datetime='#{time}'>" + time + "</time>"
     filename = html.replace("public/", "")
     id   = index
     name = filename.replace("/", "-")
-    direction = prev + next
-    $.when($.get(filename)).done((articleHtml) ->
-      content = direction +
-        "<article id='#{id}' class='article' name='#{name}'>" +
-        articleHtml + "</article>"
-      $.when($("#article").append(content)).done(->
-        this.renderHeader(this, time, modified)
+    prev = if !(index == 0) then  "<a href='##{id-1}'> Previous </a>" else ""
+    next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
+    direction = "" + prev + next
+    if $("##{id}").size() == 0
+      $.when($.get(filename)).done((articleHtml) ->
+        content = "<article id='#{id}' class='article' name='#{name}'>" +
+          articleHtml + "</article>"
+        $.when($("#article").append(content)).done(->
+          header = "<header class='header'></header>"
+          thisArticle = $(this).find("[name='#{name}']")
+          thisArticle.find("h1").wrap(header)
+          thisArticle.find("header").prepend(modified)
+          thisArticle.find("header").prepend(direction)
+        )
       )
-    )
-  renderHeader: (that, time, modified) ->
-    header = "<header class='header'></header>"
-    $(that).find("[name='#{name}']").find("h1").wrap(header)
-    $(that).find("[name='#{name}']").find("header").prepend(modified)
 })
 view = new ArticleView({el: '#article'})
