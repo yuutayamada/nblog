@@ -15,6 +15,7 @@ ArticleView = Backbone.View.extend({
     prev = if !(index == 0) then  "<a href='##{id-1}'> Previous </a>" else ""
     next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
     direction = "" + prev + next
+    this.hideArticle()
     if $("##{id}").size() == 0
       $.when($.get(filename)).done((articleHtml) ->
         content = "<article id='#{id}' class='article' name='#{name}'>" +
@@ -27,6 +28,10 @@ ArticleView = Backbone.View.extend({
           thisArticle.find("header").prepend(direction)
         )
       )
+    else
+      $("##{id}").show()
+  hideArticle: ->
+    $(".article").hide()
 })
 
 window.articleView = new ArticleView({el: '#article'})
