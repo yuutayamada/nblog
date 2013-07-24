@@ -28,4 +28,5 @@ ArticleView = Backbone.View.extend({
         )
       )
 })
-view = new ArticleView({el: '#article'})
+
+window.articleView = new ArticleView({el: '#article'})
