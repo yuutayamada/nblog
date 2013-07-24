@@ -1,17 +1,23 @@
 extends layout
 
 block content
-  body
-    if 1
-      include navbar
-    else
-      include github-ribbon
-      .container
-        h1: a.title(href="/")
-        h3: a.subtitle(href="/")
-    #content.container-fluid
-      .row-fluid
-        #article.span8
-        #sidebar.span4
-    footer#footer
-      script(src="/js/bundle.min.js")
+  if 1
+    include navbar
+  else
+    include github-ribbon
+    .container
+      h1: a.title(href="/")
+      h3: a.subtitle(href="/")
+  #content.container-fluid
+    .row-fluid
+      #article.span8
+      #sidebar.span4
+  footer#footer
+    - var develop = true
+    script(src="/js/bundle.min.js")
+    if develop
+      script(src="/js/user.js")
+      script(src="/js/article.js")
+      script(src="/js/coderwall.js")
+      script(src="/js/twitter.js")
+      script(src="/js/router.js")
