@@ -12,9 +12,8 @@ ArticleView = Backbone.View.extend({
     filename = html.replace("public/", "")
     id   = index
     name = filename.replace("/", "-")
-    prev = if !(index == 0) then  "<a href='##{id-1}'> Previous </a>" else ""
-    next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
-    direction = "" + prev + next
+    link = this.createLink(id, index)
+    direction = "" + link.prev + link.next
     this.hideArticle()
     if $("##{id}").size() == 0
       $.when($.get(filename)).done((articleHtml) ->
@@ -30,6 +29,10 @@ ArticleView = Backbone.View.extend({
       )
     else
       $("##{id}").show()
+  createLink: (id, index) ->
+    prev = if !(index == 0) then  "<a href='##{id-1}'> Previous </a>" else ""
+    next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
+    return  { prev: prev, next: next }
   hideArticle: ->
     $(".article").hide()
 })
