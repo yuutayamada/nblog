@@ -30,4 +30,4 @@ if userConfig.twitter.account and userConfig.twitter.widget_id
       return twitter + user + theme + tweetsby
     }
   )
-  view = new TwitterView({el: '#sidebar'})
+  window.twitterView = new TwitterView({el: '#sidebar'})
