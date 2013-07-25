@@ -1,15 +1,3 @@
-window.userConfig =
-  title:    ""
-  subtitle: ""
-  author:   ""
-  article:
-    limit: 3
-  twitter:
-    account:   ''
-    widget_id: ''
-  coderwall:
-    github_account: ''
-
 window._ = require("underscore")
 fileInfo = require("./tools/fileInformation.json")
 window.fileInfomation = _.sortBy(fileInfo, (info) ->
