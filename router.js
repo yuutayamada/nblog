@@ -20,8 +20,3 @@ function grid(level) {
   articleView.renderArticle(level);
   window.scrollTo(10,000);
 }
-
-$(document).ready(function() {
-  var appRouter = new AppRouter(); // Router initialization
-  Backbone.history.start(); // Backbone start
-});
