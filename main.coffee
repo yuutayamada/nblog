@@ -7,6 +7,3 @@ window.fileInformation = _.sortBy(fileInfo, (info) ->
 window.jQuery = window.$ = require("jquery-browserify")
 window.Backbone = require("backbone-browserify")
 window.Backbone.$ = $
-
-require "./templates/views.js"
-require "./router.js"
