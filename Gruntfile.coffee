@@ -2,7 +2,8 @@
 # html & css minify
 module.exports = (grunt) ->
   banner = '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-  coffee_files = "./config.coffee ./main.coffee ./libs.coffee"
+  config_main = "./config.coffee ./main.coffee"
+  coffee_files = "#{config_main} ./libs.coffee"
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     uglify:
@@ -21,17 +22,20 @@ module.exports = (grunt) ->
           "node ./tools/createJson.js"
           "browserify -t coffeeify #{coffee_files} > /tmp/bundle.js"
         ].join("&&")
+      bundle_develop:
+        command: [
+          "node ./tools/convertHtmlFromMd.js"
+          "node ./tools/createJson.js"
+          "browserify -t coffeeify #{config_main} > /tmp/bundle.js"
+        ].join("&&")
     coffee:
       views:
         files:
           './templates/views.js': ['./templates/*.coffee']
-      build_develop:
-        files:
-          './dist/build-develop.js': ['./main.coffee']
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-shell')
   grunt.loadNpmTasks('grunt-contrib-coffee')
 
   # Default task(s).
   grunt.registerTask("default", ["coffee:views", "shell:bundle", "uglify"])
-  grunt.registerTask("develop", ["coffee:build_develop", "shell:createlink"])
+  grunt.registerTask("develop", ["shell:bundle_develop", "shell:createlink"])
