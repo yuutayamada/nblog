@@ -35,6 +35,9 @@ module.exports = (grunt) ->
       dist:
         src: ["./config.coffee",'./main.coffee', './libs.coffee']
         dest: './build.coffee'
+      develop:
+        src: ["./config.coffee",'./main.coffee']
+        dest: './build.coffee'
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-shell')
   grunt.loadNpmTasks('grunt-contrib-coffee')
@@ -42,5 +45,5 @@ module.exports = (grunt) ->
   # Default task(s).
   grunt.registerTask("default", ["coffee:views", "concat:dist",
     "shell:bundle", "uglify"])
-  grunt.registerTask("develop", ["shell:bundle_develop", "uglify",
-    "shell:createlink"])
+  grunt.registerTask("develop", ["concat:develop",
+    "shell:bundle_develop", "uglify", "shell:createlink"])
