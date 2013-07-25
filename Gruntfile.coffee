@@ -38,4 +38,5 @@ module.exports = (grunt) ->
 
   # Default task(s).
   grunt.registerTask("default", ["coffee:views", "shell:bundle", "uglify"])
-  grunt.registerTask("develop", ["shell:bundle_develop", "shell:createlink"])
+  grunt.registerTask("develop", ["shell:bundle_develop", "uglify",
+    "shell:createlink"])
