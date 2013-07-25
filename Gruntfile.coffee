@@ -3,6 +3,7 @@
 module.exports = (grunt) ->
   banner = '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
   coffee_files = "./config.coffee ./main.coffee"
+  home = process.env.HOME
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     uglify:
@@ -33,10 +34,10 @@ module.exports = (grunt) ->
           './dist/views.js': ['./templates/*.coffee']
     concat:
       dist:
-        src: ["./config.coffee",'./main.coffee', './libs.coffee']
+        src: ["#{home}/.nblog",'./main.coffee', './libs.coffee']
         dest: './build.coffee'
       develop:
-        src: ["./config.coffee",'./main.coffee']
+        src: ["#{home}/.nblog",'./main.coffee']
         dest: './build.coffee'
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-shell')

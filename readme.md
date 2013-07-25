@@ -12,7 +12,7 @@ grunt
 
     (sudo) npm install -g grunt
 ## Configuration
-To use this app, you should put below configuration to ./config.coffee
+To use this app, you should put below configuration to ~/.nblog
 
     window.userConfig =
       title:    ""
