@@ -30,7 +30,7 @@ module.exports = (grunt) ->
     coffee:
       views:
         files:
-          './templates/views.js': ['./templates/*.coffee']
+          './dist/views.js': ['./templates/*.coffee']
     concat:
       dist:
         src: ["./config.coffee",'./main.coffee', './libs.coffee']
