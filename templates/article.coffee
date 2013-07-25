@@ -23,6 +23,12 @@ ArticleView = Backbone.View.extend({
           thisArticle = $(this).find("[name='#{name}']")
           thisArticle.find("h1").wrap(header)
           thisArticle.find("header").prepend(modified + direction)
+          pre = thisArticle.find("pre")
+          code = thisArticle.find("code")
+          pre.css("background", "#EEEEEE")
+          pre.attr("class", "prettyprint")
+          code.css("background", "#EEEEEE")
+          code.attr("class", "prettyprint")
         )
       )
     else
