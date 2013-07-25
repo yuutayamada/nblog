@@ -31,7 +31,7 @@ ArticleView = Backbone.View.extend({
   createLink: (id, index) ->
     prev = if !(index == 0) then  "<a href='##{id-1}'> Previous </a>" else ""
     next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
-    return  { prev: prev, next: next }
+    { prev: prev, next: next }
   hideArticle: ->
     $(".article").hide()
 })
