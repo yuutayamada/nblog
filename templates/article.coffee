@@ -29,7 +29,8 @@ ArticleView = Backbone.View.extend({
     else
       $("##{id}").show()
   createLink: (id, index) ->
-    prev = if !(index == 0) then  "<a href='##{id-1}'> Previous </a>" else ""
+    length = fileInfomation.length - 1
+    prev = if !(index == 0) then "<a href='##{id-1}'> Previous </a>" else ""
     next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
     { prev: prev, next: next }
   hideArticle: ->
