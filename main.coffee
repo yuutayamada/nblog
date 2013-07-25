@@ -1,6 +1,6 @@
 window._ = require("underscore")
 fileInfo = require("./tools/fileInformation.json")
-window.fileInfomation = _.sortBy(fileInfo, (info) ->
+window.fileInformation = _.sortBy(fileInfo, (info) ->
   return info["date"]
 ).reverse()
 

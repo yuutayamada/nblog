@@ -1,11 +1,11 @@
 ArticleView = Backbone.View.extend({
   tagName: 'div'
   initialize: ->
-    if fileInfomation.length
+    if fileInformation.length
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
-    info = fileInfomation[index]
-    length = fileInfomation.length - 1
+    info = fileInformation[index]
+    length = fileInformation.length - 1
     html = info["file"]
     time = info["date"]
     modified = "<time datetime='#{time}'>" + time + "</time>"
@@ -29,9 +29,9 @@ ArticleView = Backbone.View.extend({
     else
       $("##{id}").show()
   createLink: (id, index) ->
-    length = fileInfomation.length - 1
     prev = if !(index == 0) then "<a href='##{id-1}'> Previous </a>" else ""
     next = if !(index == length) then "<a href='##{id+1}'> Next </a>" else ""
+    length = fileInformation.length - 1
     { prev: prev, next: next }
   hideArticle: ->
     $(".article").hide()
