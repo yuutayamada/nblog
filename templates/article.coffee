@@ -23,8 +23,7 @@ ArticleView = Backbone.View.extend({
           header = "<header class='header'></header>"
           thisArticle = $(this).find("[name='#{name}']")
           thisArticle.find("h1").wrap(header)
-          thisArticle.find("header").prepend(modified)
-          thisArticle.find("header").prepend(direction)
+          thisArticle.find("header").prepend(modified + direction)
         )
       )
     else
