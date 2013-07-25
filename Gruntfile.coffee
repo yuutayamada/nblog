@@ -19,7 +19,7 @@ module.exports = (grunt) ->
           "node ./tools/convertHtmlFromMd.js"
           "mv ./src/*.md ./src/_posted/"
           "node ./tools/createJson.js"
-          "browserify -t coffeeify #{coffee_files} > /tmp/bundle.js"
+          "browserify -t coffeeify ./build.coffee > /tmp/bundle.js"
         ].join("&&")
       bundle_develop:
         command: [
@@ -31,11 +31,16 @@ module.exports = (grunt) ->
       views:
         files:
           './templates/views.js': ['./templates/*.coffee']
+    concat:
+      dist:
+        src: ["./config.coffee",'./main.coffee', './libs.coffee']
+        dest: './build.coffee'
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-shell')
   grunt.loadNpmTasks('grunt-contrib-coffee')
-
+  grunt.loadNpmTasks('grunt-contrib-concat')
   # Default task(s).
-  grunt.registerTask("default", ["coffee:views", "shell:bundle", "uglify"])
+  grunt.registerTask("default", ["coffee:views", "concat:dist",
+    "shell:bundle", "uglify"])
   grunt.registerTask("develop", ["shell:bundle_develop", "uglify",
     "shell:createlink"])
