@@ -5,12 +5,12 @@ ArticleView = Backbone.View.extend({
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
     file = fileInformation[index]
-    filename = "/articles/" + file["name"]
+    file_path = "/articles/" + file["name"]
     id   = index
     name = file["name"]
     this.hideArticles()
     if $("##{id}").size() == 0
-      $.when($.get(filename)).done((articleHtml) ->
+      $.when($.get(file_path)).done((articleHtml) ->
         content = "<article id='#{id}' class='article' name='#{name}'>" +
           articleHtml + "</article>"
         $.when($("#article").append(content)).done(->
