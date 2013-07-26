@@ -32,9 +32,10 @@ ArticleView = Backbone.View.extend({
   prettify: (thisArticle) ->
     pre = thisArticle.find("pre")
     code = thisArticle.find("code")
-    pre.css("background", "#EEEEEE")
+    color = "#EEEEEE"
+    pre.css("background", color)
     pre.attr("class", "prettyprint")
-    code.css("background", "#EEEEEE")
+    code.css("background", color)
     code.attr("class", "prettyprint")
   createLink: (id) ->
     isId = (id) ->
