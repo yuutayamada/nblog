@@ -4,10 +4,10 @@ ArticleView = Backbone.View.extend({
     if fileInformation.length
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
-    info = fileInformation[index]
-    filename = "/articles/" + info["name"]
+    file = fileInformation[index]
+    filename = "/articles/" + file["name"]
     id   = index
-    name = info["name"]
+    name = file["name"]
     this.hideArticles()
     if $("##{id}").size() == 0
       $.when($.get(filename)).done((articleHtml) ->
@@ -15,15 +15,15 @@ ArticleView = Backbone.View.extend({
           articleHtml + "</article>"
         $.when($("#article").append(content)).done(->
           thisArticle = $(this).find("[name='#{name}']")
-          articleView.appendHeader(thisArticle, info, id)
+          articleView.appendHeader(thisArticle, file, id)
           articleView.prettify(thisArticle)
         )
       )
     else
       $("##{id}").show()
-  appendHeader: (thisArticle, info, id) ->
+  appendHeader: (thisArticle, file, id) ->
     header = "<header class='header'></header>"
-    time = info["date"]
+    time = file["date"]
     modified = "<time datetime='#{time}'>" + time + "</time>"
     link = articleView.createLink(id)
     direction = "" + link.prev + link.next
