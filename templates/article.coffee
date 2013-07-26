@@ -54,6 +54,7 @@ ArticleView = Backbone.View.extend({
       code.css("background", color)
       pre.attr("class", "prettyprint")
       code.attr("class", "prettyprint")
+      prettyPrint()
   createLink: (id) ->
     isId = (id) ->
       if fileInformation[id] and !(fileInformation.length == id)
