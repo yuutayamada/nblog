@@ -2,9 +2,14 @@ var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
     'index.html': 'home',
-    ':level': 'blockGrid'
+    ':level': 'blockGrid',
+    // Matches http://example.com/#post/index.html
+    'post/:file_name': 'post'
   },
   home : function() {},
+  post : function(file_name) {
+    routeToArticle(file_name);
+  },
   blockGrid : function(level) {
     routeToArticle(level);
   }
