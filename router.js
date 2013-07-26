@@ -6,7 +6,7 @@ var AppRouter = Backbone.Router.extend({
   },
   home : function() {},
   blockGrid : function(level) {
-    grid(level); // Calling grid function
+    routeToArticle(level);
   }
 });
 
@@ -15,8 +15,7 @@ $(document).ready(function() {
   Backbone.history.start(); // Backbone start
 });
 
-// Applying color for grid based on level.
-function grid(level) {
+function routeToArticle(level) {
   var id = (isFinite(level)) ? level : articleView.getFileId(level);
   articleView.renderArticle(id);
   window.scrollTo(10,000);
