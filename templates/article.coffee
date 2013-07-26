@@ -5,28 +5,30 @@ ArticleView = Backbone.View.extend({
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
     info = fileInformation[index]
-    time = info["date"]
-    modified = "<time datetime='#{time}'>" + time + "</time>"
     filename = "/articles/" + info["file"]
     id   = index
     name = info["file"]
-    link = this.createLink(id)
-    direction = "" + link.prev + link.next
     this.hideArticles()
     if $("##{id}").size() == 0
       $.when($.get(filename)).done((articleHtml) ->
         content = "<article id='#{id}' class='article' name='#{name}'>" +
           articleHtml + "</article>"
         $.when($("#article").append(content)).done(->
-          header = "<header class='header'></header>"
           thisArticle = $(this).find("[name='#{name}']")
-          thisArticle.find("h1").wrap(header)
-          thisArticle.find("header").prepend(modified + direction)
+          articleView.appendHeader(thisArticle, info, id)
           articleView.prettify(thisArticle)
         )
       )
     else
       $("##{id}").show()
+  appendHeader: (thisArticle, info, id) ->
+    header = "<header class='header'></header>"
+    time = info["date"]
+    modified = "<time datetime='#{time}'>" + time + "</time>"
+    link = articleView.createLink(id)
+    direction = "" + link.prev + link.next
+    thisArticle.find("h1").wrap(header)
+    thisArticle.find("header").prepend(modified + direction)
   prettify: (thisArticle) ->
     pre = thisArticle.find("pre")
     code = thisArticle.find("code")
