@@ -29,7 +29,7 @@ var getChangedTime = function(filepaths) {
       if (err) throw err;
       formattedMtime = dateFormat(stats.mtime);
       var file_name = path.basename(filepath);
-      fileInformations.push({file: file_name, date: formattedMtime});
+      fileInformations.push({name: file_name, date: formattedMtime});
       console.log(fileInformations.length);
       if (fileInformations.length == filepaths.length) {
         write("./tools/fileInformation.json", fileInformations);
