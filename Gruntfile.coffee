@@ -33,7 +33,7 @@ module.exports = (grunt) ->
           './dist/views.js': ['./templates/*.coffee']
     concat:
       dist:
-        src: ["#{home}/.nblog",'./main.coffee', './libs.coffee']
+        src: ["#{home}/.nblog",'./main.coffee', './loadfiles.coffee']
         dest: './build.coffee'
       develop:
         src: ["#{home}/.nblog",'./main.coffee']
