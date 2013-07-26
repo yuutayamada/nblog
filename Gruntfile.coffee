@@ -2,7 +2,6 @@
 # html & css minify
 module.exports = (grunt) ->
   banner = '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-  coffee_files = "./config.coffee ./main.coffee"
   home = process.env.HOME
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
@@ -26,7 +25,7 @@ module.exports = (grunt) ->
         command: [
           "node ./tools/convertHtmlFromMd.js"
           "node ./tools/createJson.js"
-          "browserify -t coffeeify #{coffee_files} > /tmp/bundle.js"
+          "browserify -t coffeeify ./build.coffee > /tmp/bundle.js"
         ].join("&&")
     coffee:
       views:
