@@ -8,7 +8,6 @@ heroku/public/articles/*.html
 /templates/*.js
 dist/views.js
 build.coffee
-config.coffee
 # Ignore articles, but keep directory structure
 public/articles/*
 !public/articles/.gitkeep
