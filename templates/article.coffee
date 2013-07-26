@@ -4,23 +4,25 @@ ArticleView = Backbone.View.extend({
     if fileInformation.length
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
-    file = fileInformation[index]
-    file_path = "/articles/" + file["name"]
-    id   = index
-    name = file["name"]
-    this.hideArticles()
-    if $("##{id}").size() == 0
-      $.when($.get(file_path)).done((articleHtml) ->
-        content = "<article id='#{id}' class='article' name='#{name}'>" +
-          articleHtml + "</article>"
-        $.when($("#article").append(content)).done(->
-          thisArticle = $(this).find("[name='#{name}']")
-          articleView.appendHeader(thisArticle, file, id)
-          articleView.prettify(thisArticle)
+    if index or index == 0
+      file = fileInformation[index]
+      file_path = "/articles/" + file["name"]
+      id   = index
+      name = file["name"]
+      this.hideArticles()
+      if $("##{id}").size() == 0
+        $.when($.get(file_path)).done((articleHtml) ->
+          content = "<article id='#{id}' class='article' name='#{name}'>" +
+            articleHtml + "</article>"
+          $.when($("#article").append(content)).done(->
+            thisArticle = $(this).find("[name='#{name}']")
+            articleView.appendHeader(thisArticle, file, id)
+            articleView.prettify(thisArticle)
+          )
         )
+      else
+        $("##{id}").show()
       )
-    else
-      $("##{id}").show()
   appendHeader: (thisArticle, file, id) ->
     header = "<header class='header'></header>"
     time = file["date"]
