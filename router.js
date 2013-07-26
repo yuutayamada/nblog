@@ -5,7 +5,7 @@ var AppRouter = Backbone.Router.extend({
     ':level': 'blockGrid'
   },
   home : function() {},
-  blockGrid : function(level){
+  blockGrid : function(level) {
     grid(level); // Calling grid function
   }
 });
