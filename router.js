@@ -17,6 +17,7 @@ $(document).ready(function() {
 
 // Applying color for grid based on level.
 function grid(level) {
-  articleView.renderArticle(level);
+  var id = (isFinite(level)) ? level : articleView.getFileId(level);
+  articleView.renderArticle(id);
   window.scrollTo(10,000);
 }

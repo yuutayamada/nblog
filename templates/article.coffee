@@ -22,7 +22,21 @@ ArticleView = Backbone.View.extend({
         )
       else
         $("##{id}").show()
+  getFileId: (name) ->
+    id = 0
+    try
+      fileInformation.forEach((file, index)->
+        if !(fileInformation.length == index)
+          if file["name"] == name
+            console.log("called throw")
+            id = index
+            throw false
       )
+    catch error
+      if error
+        throw error
+      else
+        id
   appendHeader: (thisArticle, file, id) ->
     header = "<header class='header'></header>"
     time = file["date"]
