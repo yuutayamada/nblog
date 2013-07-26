@@ -5,10 +5,9 @@ ArticleView = Backbone.View.extend({
       this.renderArticle(0) # show latest article
   renderArticle: (index) ->
     info = fileInformation[index]
-    html = info["file"]
     time = info["date"]
     modified = "<time datetime='#{time}'>" + time + "</time>"
-    filename = "/articles/" + html
+    filename = "/articles/" + info["file"]
     id   = index
     name = filename.replace("/", "-")
     link = this.createLink(id)
