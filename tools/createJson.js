@@ -28,8 +28,8 @@ var getChangedTime = function(filepaths) {
     fs.stat(abspath, function(err, stats) {
       if (err) throw err;
       formattedMtime = dateFormat(stats.mtime);
-      var heroku_file = filepath.replace("heroku", "");
-      fileInformations.push({file: heroku_file, date: formattedMtime});
+      var file_name = path.basename(filepath);
+      fileInformations.push({file: file_name, date: formattedMtime});
       console.log(fileInformations.length);
       if (fileInformations.length == filepaths.length) {
         write("./tools/fileInformation.json", fileInformations);

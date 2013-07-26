@@ -8,7 +8,7 @@ ArticleView = Backbone.View.extend({
     html = info["file"]
     time = info["date"]
     modified = "<time datetime='#{time}'>" + time + "</time>"
-    filename = html.replace("public/", "")
+    filename = "/articles/" + html
     id   = index
     name = filename.replace("/", "-")
     link = this.createLink(id)
