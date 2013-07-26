@@ -9,7 +9,7 @@ ArticleView = Backbone.View.extend({
     modified = "<time datetime='#{time}'>" + time + "</time>"
     filename = "/articles/" + info["file"]
     id   = index
-    name = filename.replace("/", "-")
+    name = info["file"]
     link = this.createLink(id)
     direction = "" + link.prev + link.next
     this.hideArticles()
