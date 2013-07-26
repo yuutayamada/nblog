@@ -41,7 +41,8 @@ ArticleView = Backbone.View.extend({
     isId = (id) ->
       if fileInformation[id] and !(fileInformation.length == id)
         true
-      else null
+      else
+        null
     prev_id = Number(id) - 1
     next_id = Number(id) + 1
     prev = if isId(prev_id) then "<a href='##{prev_id}'> Previous </a>" else ""
