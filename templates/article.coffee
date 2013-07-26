@@ -48,11 +48,12 @@ ArticleView = Backbone.View.extend({
   prettify: (thisArticle) ->
     pre = thisArticle.find("pre")
     code = thisArticle.find("code")
-    color = "#EEEEEE"
-    pre.css("background", color)
-    pre.attr("class", "prettyprint")
-    code.css("background", color)
-    code.attr("class", "prettyprint")
+    if pre.size() != 0 or code.size() != 0
+      color = "#EEEEEE"
+      pre.css("background", color)
+      code.css("background", color)
+      pre.attr("class", "prettyprint")
+      code.attr("class", "prettyprint")
   createLink: (id) ->
     isId = (id) ->
       if fileInformation[id] and !(fileInformation.length == id)
