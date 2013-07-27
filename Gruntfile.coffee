@@ -16,7 +16,8 @@ module.exports = (grunt) ->
       createlink:
         command: "sh ./tools/createlink.sh"
       makeArticleDir:
-        command: ["mkdir -p #{article_dir}",
+        command: ["rm -fr ./src"
+                  "mkdir -p #{article_dir}",
                   "ln -s -d #{article_dir} ./src"].join("&&")
       bundle:
         command: [
