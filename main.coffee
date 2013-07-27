@@ -1,5 +1,5 @@
 window._ = require("underscore")
-fileInfo = require("./tools/fileInformation.json")
+fileInfo = require("./heroku/public/js/fileInformation.json")
 window.fileInformation = fileInfo
 
 window.jQuery = window.$ = require("jquery-browserify")

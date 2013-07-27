@@ -1,11 +1,15 @@
 ArticleView = Backbone.View.extend({
   tagName: 'div'
   initialize: ->
-    if fileInformation.length
-      this.renderArticle(0) # show latest article
-  renderArticle: (index) ->
+    fileInfo = this.getFileUrls()
+    if fileInfo.length
+      this.renderArticle(0, fileInfo) # show latest article
+  getFileUrls: ->
+    urls = $("#article").attr("value")
+    fileInfo = jQuery.parseJSON(urls)
+  renderArticle: (index, fileInfo) ->
     if index or index == 0
-      file = fileInformation[index]
+      file = fileInfo[index]
       file_path = "/articles/" + file["name"]
       id   = index
       name = file["name"]

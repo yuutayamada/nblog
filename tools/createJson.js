@@ -36,7 +36,7 @@ var getChangedTime = function(filepaths) {
         var fileInfo = _.sortBy(fileInformations, function(info) {
           return info["date"];
         }).reverse();
-        write("./tools/fileInformation.json", fileInfo);
+        write("./heroku/public/js/fileInformation.json", fileInfo);
       }
     });
   });
