@@ -39,12 +39,12 @@ module.exports = (grunt) ->
         src: ["#{home}/.nblog","./main.coffee", "./loadfiles.coffee"]
         dest: "./build.coffee"
       develop:
-        src: ["#{home}/.nblog",'./main.coffee']
-        dest: './build.coffee'
-  grunt.loadNpmTasks('grunt-contrib-uglify')
-  grunt.loadNpmTasks('grunt-shell')
-  grunt.loadNpmTasks('grunt-contrib-coffee')
-  grunt.loadNpmTasks('grunt-contrib-concat')
+        src: ["#{home}/.nblog","./main.coffee"]
+        dest: "./build.coffee"
+  grunt.loadNpmTasks("grunt-contrib-uglify")
+  grunt.loadNpmTasks("grunt-contrib-coffee")
+  grunt.loadNpmTasks("grunt-contrib-concat")
+  grunt.loadNpmTasks("grunt-shell")
   # Default task(s).
   grunt.registerTask("default", ["coffee:views", "concat:dist",
     "shell:bundle", "uglify"])
