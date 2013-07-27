@@ -46,7 +46,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks("grunt-contrib-concat")
   grunt.loadNpmTasks("grunt-shell")
   # Default task(s).
-  grunt.registerTask("default", ["coffee:views", "concat:dist",
-    "shell:bundle", "uglify"])
+  grunt.registerTask("default", [
+    "coffee:views", "concat:dist", "shell:bundle", "uglify"
+  ])
   grunt.registerTask("develop", ["concat:develop",
     "shell:bundle_develop", "uglify", "shell:createlink"])
