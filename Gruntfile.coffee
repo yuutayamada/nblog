@@ -4,7 +4,7 @@ module.exports = (grunt) ->
   banner = '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
   home = process.env.HOME
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
+    pkg: grunt.file.readJSON("package.json")
     uglify:
       target:
         options:
@@ -13,7 +13,7 @@ module.exports = (grunt) ->
           "./heroku/public/js/bundle.min.js": ["/tmp/bundle.js"]
     shell:
       createlink:
-        command: 'sh ./tools/createlink.sh'
+        command: "sh ./tools/createlink.sh"
       makeArticleDir:
         command: ["mkdir -p #{article_dir}",
                   "ln -s -d #{article_dir} ./src"].join("&&")
@@ -36,8 +36,8 @@ module.exports = (grunt) ->
           './dist/views.js': ['./templates/*.coffee']
     concat:
       dist:
-        src: ["#{home}/.nblog",'./main.coffee', './loadfiles.coffee']
-        dest: './build.coffee'
+        src: ["#{home}/.nblog","./main.coffee", "./loadfiles.coffee"]
+        dest: "./build.coffee"
       develop:
         src: ["#{home}/.nblog",'./main.coffee']
         dest: './build.coffee'
