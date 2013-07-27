@@ -1,3 +1,4 @@
+var _ = require("underscore");
 var fs = require("fs");
 
 var write = function(path, jsData) {
@@ -32,7 +33,10 @@ var getChangedTime = function(filepaths) {
       fileInformations.push({name: file_name, date: formattedMtime});
       console.log(fileInformations.length);
       if (fileInformations.length == filepaths.length) {
-        write("./tools/fileInformation.json", fileInformations);
+        var fileInfo = _.sortBy(fileInformations, function(info) {
+          return info["date"];
+        }).reverse();
+        write("./tools/fileInformation.json", fileInfo);
       }
     });
   });
