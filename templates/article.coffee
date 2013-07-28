@@ -1,9 +1,9 @@
 ArticleView = Backbone.View.extend({
   tagName: 'div'
   initialize: ->
-    fileInfo = this.getFileUrls()
-    if fileInfo.length
-      this.renderArticle(0, fileInfo) # show latest article
+    this.fileInfo = this.getFileUrls()
+    if this.fileInfo.length
+      this.renderArticle(0, this.fileInfo) # show latest article
   getFileUrls: ->
     urls = $("#article").attr("value")
     fileInfo = jQuery.parseJSON(urls)
@@ -20,7 +20,7 @@ ArticleView = Backbone.View.extend({
             articleHtml + "</article>"
           $.when($("#article").append(content)).done(->
             thisArticle = $(this).find("[name='#{name}']")
-            articleView.appendHeader(thisArticle, file, id)
+            articleView.appendHeader(thisArticle, file, id, fileInfo)
             articleView.prettify(thisArticle)
           )
         )
@@ -29,8 +29,8 @@ ArticleView = Backbone.View.extend({
   getFileId: (name) ->
     id = 0
     try
-      fileInformation.forEach((file, index)->
-        if !(fileInformation.length == index)
+      this.fileInfo.forEach((file, index)->
+        if !(this.fileInfo.length == index)
           if file["name"] == name
             console.log("called throw")
             id = index
@@ -41,11 +41,11 @@ ArticleView = Backbone.View.extend({
         throw error
       else
         id
-  appendHeader: (thisArticle, file, id) ->
+  appendHeader: (thisArticle, file, id, fileInfo) ->
     header = "<header class='header'></header>"
     time = file["date"]
     modified = "<time datetime='#{time}'>" + time + "</time>"
-    link = articleView.createLink(id)
+    link = articleView.createLink(id, fileInfo)
     direction = "" + link.prev + link.next
     thisArticle.find("h1").wrap(header)
     thisArticle.find("header").prepend(modified + direction)
@@ -59,9 +59,9 @@ ArticleView = Backbone.View.extend({
       pre.attr("class", "prettyprint")
       code.attr("class", "prettyprint")
       prettyPrint()
-  createLink: (id) ->
+  createLink: (id, fileInfo) ->
     isId = (id) ->
-      if fileInformation[id] and !(fileInformation.length == id)
+      if fileInfo[id] and !(fileInfo.length == id)
         true
       else
         null
