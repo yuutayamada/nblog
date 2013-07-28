@@ -1,7 +1,7 @@
 user = userConfig.coderwall.github_account
 if user
   coderwall = "http://www.coderwall.com/"
-  coderwallJSONurl =coderwall + user + ".json?callback=?"
+  coderwallJSONurl = coderwall + user + ".json?callback=?"
   height = width = 65
   div = "<div class='coderwall'>Coderwall<div id='coderwall-img'></div></div>"
   $("#sidebar").append(div)
