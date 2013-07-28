@@ -8,3 +8,4 @@ ln -s ../../../../templates/coderwall.js
 ln -s ../../../../templates/twitter.js
 ln -s ../../../../templates/user.js
 ln -s ../../../../router.js
+ln -s ../../../../lib/prettify.js
