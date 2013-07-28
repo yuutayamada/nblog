@@ -1,6 +1,5 @@
 node_modules
 heroku/public/js/bundle.min.js
-/tools/fileInformation.json
 heroku/public/stylesheets/*.css
 heroku/public/articles/*.html
 !heroku/public/stylesheets/bootstrap-responsive.min.css
@@ -11,3 +10,4 @@ build.coffee
 # Ignore articles, but keep directory structure
 public/articles/*
 !public/articles/.gitkeep
+/heroku/public/js/fileInformation.json
