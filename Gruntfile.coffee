@@ -35,6 +35,7 @@ module.exports = (grunt) ->
       develop:
         src: ["#{home}/.nblog","./main.coffee"]
         dest: "./build.coffee"
+
   grunt.loadNpmTasks("grunt-contrib-uglify")
   grunt.loadNpmTasks("grunt-contrib-coffee")
   grunt.loadNpmTasks("grunt-contrib-concat")
