@@ -16,9 +16,7 @@ module.exports = (grunt) ->
       createlink:
         command: "sh ./tools/createlink.sh"
       makeArticleDir:
-        command: ["rm -fr ./src"
-                  "mkdir -p #{article_dir}",
-                  "ln -s -d #{article_dir} ./src"].join("&&")
+        command: "sh ./tools/makeArticleDir.sh"
       bundle:
         command: [
           "node ./tools/convertHtmlFromMd.js"
