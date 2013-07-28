@@ -32,7 +32,6 @@ ArticleView = Backbone.View.extend({
       this.fileInfo.forEach((file, index)->
         if !(this.fileInfo.length == index)
           if file["name"] == name
-            console.log("called throw")
             id = index
             throw false
       )
