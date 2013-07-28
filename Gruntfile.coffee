@@ -46,3 +46,4 @@ module.exports = (grunt) ->
   ])
   grunt.registerTask("develop", ["concat:develop",
     "shell:bundle_develop", "uglify", "shell:createlink"])
+  grunt.registerTask("createlink", ["shell:createlink"])
