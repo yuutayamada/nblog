@@ -22,6 +22,7 @@ $(document).ready(function() {
 
 function routeToArticle(level) {
   var id = (isFinite(level)) ? level : articleView.getFileId(level);
-  articleView.renderArticle(id);
+  var fileInfo = articleView.getFileUrls();
+  articleView.renderArticle(id, fileInfo);
   window.scrollTo(10,000);
 }
