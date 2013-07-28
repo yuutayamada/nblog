@@ -18,18 +18,9 @@ module.exports = (grunt) ->
       makeArticleDir:
         command: "sh ./tools/makeArticleDir.sh"
       bundle:
-        command: [
-          "node ./tools/convertHtmlFromMd.js"
-          "mv ./src/*.md ./src/_posted/"
-          "node ./tools/createJson.js"
-          "browserify -t coffeeify ./build.coffee > /tmp/bundle.js"
-        ].join("&&")
+        command: "sh ./tools/bundle.sh"
       bundle_develop:
-        command: [
-          "node ./tools/convertHtmlFromMd.js"
-          "node ./tools/createJson.js"
-          "browserify -t coffeeify ./build.coffee > /tmp/bundle.js"
-        ].join("&&")
+        command: "sh ./tools/bundle.sh develop"
     coffee:
       views:
         files:
