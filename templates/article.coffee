@@ -23,6 +23,7 @@ ArticleView = Backbone.View.extend({
         )
       else
         $("##{id}").show()
+    this
   getFileUrls: ->
     urls = $("#article").attr("value")
     fileInfo = jQuery.parseJSON(urls)
