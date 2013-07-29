@@ -5,11 +5,11 @@ if userConfig.twitter.account and userConfig.twitter.widget_id
     el: '#sidebar'
     id: "twitterback"
     tagName: 'div'
-    initialize: -> this.renderTwitter()
+    initialize: -> @renderTwitter()
     renderTwitter: ->
       account = userConfig.twitter.account
       id      = userConfig.twitter.widget_id
-      twitter = this.createTwitterTemplate(account, id)
+      twitter = @createTwitterTemplate(account, id)
       $(@el).append(twitter)
       ((d,s,id) ->
         js
