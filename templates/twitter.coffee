@@ -1,7 +1,7 @@
 #  You can get the information from https://twitter.com/settings/widgets/
 #  see : https://dev.twitter.com/ja/docs/embedded-timelines
 if userConfig.twitter.account and userConfig.twitter.widget_id
-  TwitterView = Backbone.View.extend({
+  class TwitterView extends Backbone.View
     tagName: 'div'
     initialize: -> this.renderTwitter()
     renderTwitter: ->
@@ -28,6 +28,5 @@ if userConfig.twitter.account and userConfig.twitter.widget_id
       '''
       tweetsby = '>Tweets by @' + account + '</a>'
       return twitter + user + theme + tweetsby
-    }
-  )
+
   twitterView = new TwitterView({el: '#sidebar'})
