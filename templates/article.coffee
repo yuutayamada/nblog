@@ -74,4 +74,4 @@ ArticleView = Backbone.View.extend({
     $(".article").hide()
 })
 
-window.articleView = new ArticleView({el: '#article'})
+articleView = new ArticleView({el: '#article'})
