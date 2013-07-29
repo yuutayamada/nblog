@@ -46,8 +46,9 @@ module.exports = (grunt) ->
     "concat:libs", "coffee:compile",
     "concat:dist", "shell:bundle", "uglify"
   ])
-  grunt.registerTask("develop", ["concat:develop",
-    "shell:bundle_develop", "uglify", "shell:createlink"])
+  grunt.registerTask("develop", [
+    "concat:develop", "shell:bundle_develop", "uglify",
+    "concat:libs", "coffee:compile", "shell:createlink"])
   grunt.registerTask("updatelibs", [
     "concat:libs", "coffee:compile", "shell:createlink"])
   grunt.registerTask("createlink", ["shell:createlink"])
