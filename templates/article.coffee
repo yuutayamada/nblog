@@ -4,9 +4,6 @@ ArticleView = Backbone.View.extend({
     this.fileInfo = this.getFileUrls()
     if this.fileInfo.length
       this.renderArticle(0, this.fileInfo) # show latest article
-  getFileUrls: ->
-    urls = $("#article").attr("value")
-    fileInfo = jQuery.parseJSON(urls)
   renderArticle: (index, fileInfo) ->
     if index or index == 0
       file = fileInfo[index]
@@ -26,6 +23,9 @@ ArticleView = Backbone.View.extend({
         )
       else
         $("##{id}").show()
+  getFileUrls: ->
+    urls = $("#article").attr("value")
+    fileInfo = jQuery.parseJSON(urls)
   getFileId: (name) ->
     id = 0
     try
