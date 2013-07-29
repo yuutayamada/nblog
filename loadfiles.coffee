@@ -1,3 +1,3 @@
-require "./dist/views.js"
-require "./router.js"
+require "./dist/libs.js"
+
 require "./lib/prettify.js"
