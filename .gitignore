@@ -5,7 +5,7 @@ heroku/public/articles/*.html
 !heroku/public/stylesheets/bootstrap-responsive.min.css
 !public/stylesheets/bootstrap.min.css
 /templates/*.js
-dist/views.js
+dist/*
 build.coffee
 # Ignore articles, but keep directory structure
 public/articles/*
