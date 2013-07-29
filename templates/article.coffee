@@ -3,8 +3,8 @@ ArticleView = Backbone.View.extend({
   initialize: ->
     this.fileInfo = this.getFileUrls()
     if this.fileInfo.length
-      this.renderArticle(0, this.fileInfo) # show latest article
-  renderArticle: (index, fileInfo) ->
+      this.render(0, this.fileInfo) # show latest article
+  render: (index, fileInfo) ->
     if index or index == 0
       file = fileInfo[index]
       file_path = "/articles/" + file["name"]
