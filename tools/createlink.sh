@@ -3,9 +3,5 @@ develop="./heroku/public/js/develop"
 rm -fr   ${develop}
 mkdir -p ${develop}  && \
 cd ${develop} && \
-ln -s ../../../../templates/article.js
-ln -s ../../../../templates/coderwall.js
-ln -s ../../../../templates/twitter.js
-ln -s ../../../../templates/user.js
-ln -s ../../../../router.js
+ln -s ../../../../dist/libs.js
 ln -s ../../../../lib/prettify.js
