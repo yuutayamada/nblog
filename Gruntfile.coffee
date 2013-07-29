@@ -25,9 +25,9 @@ module.exports = (grunt) ->
       bundle_develop:
         command: "sh ./tools/bundle.sh develop"
     coffee:
-      views:
+      compile:
         files:
-          './dist/views.js': ['./templates/*.coffee']
+          "./dist/libs.js": ["./dist/libs.coffee"]
     concat:
       dist:
         src: ["#{home}/.nblog","./main.coffee", "./loadfiles.coffee"]
@@ -35,6 +35,9 @@ module.exports = (grunt) ->
       develop:
         src: ["#{home}/.nblog","./main.coffee"]
         dest: "./build.coffee"
+      libs:
+        src: ["./templates/*.coffee", "./router.coffee"]
+        dest: "./dist/libs.coffee"
 
   grunt.loadNpmTasks("grunt-contrib-uglify")
   grunt.loadNpmTasks("grunt-contrib-coffee")
@@ -43,7 +46,8 @@ module.exports = (grunt) ->
 
   # Default task(s).
   grunt.registerTask("default", [
-    "coffee:views", "concat:dist", "shell:bundle", "uglify"
+    "concat:libs", "coffee:compile",
+    "concat:dist", "shell:bundle", "uglify"
   ])
   grunt.registerTask("develop", ["concat:develop",
     "shell:bundle_develop", "uglify", "shell:createlink"])
