@@ -21,4 +21,3 @@ routeToArticle = (level) ->
   id = if (isFinite(level)) then level else articleView.getFileId(level)
   fileInfo = articleView.getFileUrls()
   articleView.render(id, fileInfo)
-  # window.scrollTo(10.000)
