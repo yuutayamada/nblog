@@ -68,7 +68,7 @@ ArticleView = Backbone.View.extend({
     prev_id = Number(id) - 1
     next_id = Number(id) + 1
     prev = if isId(prev_id) then "<a href='##{prev_id}'> Previous </a>" else ""
-    next = if isId(next_id) then "<a href='##{next_id}'> Next </a>" else ""
+    next = if isId(next_id) then "<a href='##{next_id}'> Next </a>"     else ""
     { prev: prev, next: next }
   hideArticles: ->
     $(".article").hide()
