@@ -2,6 +2,7 @@
 #  see : https://dev.twitter.com/ja/docs/embedded-timelines
 if userConfig.twitter.account and userConfig.twitter.widget_id
   class TwitterView extends Backbone.View
+    el: '#sidebar'
     tagName: 'div'
     initialize: -> this.renderTwitter()
     renderTwitter: ->
@@ -29,4 +30,4 @@ if userConfig.twitter.account and userConfig.twitter.widget_id
       tweetsby = '>Tweets by @' + account + '</a>'
       return twitter + user + theme + tweetsby
 
-  twitterView = new TwitterView({el: '#sidebar'})
+  twitterView = new TwitterView
