@@ -1,15 +1,12 @@
 # Todo
 # html & css minify
 module.exports = (grunt) ->
-  banner = '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
   home = process.env.HOME
   article_dir = "#{home}/article"
   grunt.initConfig
     pkg: grunt.file.readJSON("package.json")
     uglify:
       target:
-        options:
-          banner: banner
         files:
           "./heroku/public/js/bundle.min.js": ["/tmp/bundle.js"]
     shell:
