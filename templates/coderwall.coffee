@@ -1,7 +1,7 @@
 user = userConfig.coderwall.github_account
 if user
-  coderwall = "http://www.coderwall.com/"
-  coderwallJSONurl = coderwall + user + ".json?callback=?"
+  url = "http://www.coderwall.com/"
+  coderwallJSONurl = url + user + ".json?callback=?"
   height = width = 65
   div = "<div class='coderwall'>Coderwall<div id='coderwall-img'></div></div>"
   $("#sidebar").append(div)
@@ -16,7 +16,7 @@ if user
           .attr("width", width)
           .appendTo("#coderwall-img")
           .hover(-> $(this).css("opacity","1.0")) # 0.6?
-          .click(-> window.location = coderwall + user)
+          .click(-> window.location = url + user)
       )
     )
   )
