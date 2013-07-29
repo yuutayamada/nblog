@@ -5,7 +5,7 @@ if user
     tagName: "div"
     initialize: ->
       @render()
-    render: =>
+    render: ->
       $(@el).html """
       <div class='coderwall'>Coderwall<div id='coderwall-img'></div></div>
       """
