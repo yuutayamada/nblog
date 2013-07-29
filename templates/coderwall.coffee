@@ -6,8 +6,8 @@ if user
   div = "<div class='coderwall'>Coderwall<div id='coderwall-img'></div></div>"
   $("#sidebar").append(div)
   $(document).ready( ->
-    $.getJSON(coderwallJSONurl, (data) ->
-      $.each(data.data.badges, (i, item) ->
+    $.getJSON(coderwallJSONurl, (coderwall) ->
+      $.each(coderwall.data.badges, (i, item) ->
         $("<img/>").attr("src", item.badge)
           .attr("float", "left")
           .attr("title", item.name + ": " + item.description)
