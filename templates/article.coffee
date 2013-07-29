@@ -1,4 +1,4 @@
-ArticleView = Backbone.View.extend({
+class ArticleView extends Backbone.View
   el: '#article'
   tagName: 'div'
   initialize: ->
@@ -73,5 +73,5 @@ ArticleView = Backbone.View.extend({
     { prev: prev, next: next }
   hideArticles: ->
     $(".article").hide()
-})
-articleView = new ArticleView()
+
+articleView = new ArticleView
