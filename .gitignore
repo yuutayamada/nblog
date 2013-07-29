@@ -11,3 +11,6 @@ build.coffee
 public/articles/*
 !public/articles/.gitkeep
 /heroku/public/js/fileInformation.json
+/lib/loadfiles.js
+/lib/main.js
+/lib/router.js
