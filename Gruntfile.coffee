@@ -27,13 +27,13 @@ module.exports = (grunt) ->
           "./dist/libs.js": ["./dist/libs.coffee"]
     concat:
       dist:
-        src: ["#{home}/.nblog","./main.coffee", "./loadfiles.coffee"]
+        src: ["#{home}/.nblog","./lib/main.coffee", "./lib/loadfiles.coffee"]
         dest: "./build.coffee"
       develop:
-        src: ["#{home}/.nblog","./main.coffee"]
+        src: ["#{home}/.nblog","./lib/main.coffee"]
         dest: "./build.coffee"
       libs:
-        src: ["./templates/*.coffee", "./router.coffee"]
+        src: ["./templates/*.coffee", "./lib/router.coffee"]
         dest: "./dist/libs.coffee"
 
   grunt.loadNpmTasks("grunt-contrib-uglify")
