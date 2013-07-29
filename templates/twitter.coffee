@@ -3,13 +3,14 @@
 if userConfig.twitter.account and userConfig.twitter.widget_id
   class TwitterView extends Backbone.View
     el: '#sidebar'
+    id: "twitterback"
     tagName: 'div'
     initialize: -> this.renderTwitter()
     renderTwitter: ->
       account = userConfig.twitter.account
       id      = userConfig.twitter.widget_id
       twitter = this.createTwitterTemplate(account, id)
-      $("#sidebar").append("<div id='twitterback'>"+twitter+"</div>")
+      $(@el).append(twitter)
       ((d,s,id) ->
         js
         fjs = d.getElementsByTagName(s)[0]
