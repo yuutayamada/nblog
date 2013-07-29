@@ -9,8 +9,8 @@ if userConfig.twitter.account and userConfig.twitter.widget_id
     renderTwitter: ->
       account = userConfig.twitter.account
       id      = userConfig.twitter.widget_id
-      twitter = @createTwitterTemplate(account, id)
-      $(@el).append(twitter)
+      template = @createTwitterTemplate(account, id)
+      $(@el).append(template)
       ((d,s,id) ->
         js
         fjs = d.getElementsByTagName(s)[0]
