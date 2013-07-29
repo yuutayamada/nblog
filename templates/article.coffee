@@ -1,4 +1,5 @@
 ArticleView = Backbone.View.extend({
+  el: '#article'
   tagName: 'div'
   initialize: ->
     @fileInfo = @getFileUrls()
@@ -73,5 +74,4 @@ ArticleView = Backbone.View.extend({
   hideArticles: ->
     $(".article").hide()
 })
-
-articleView = new ArticleView({el: '#article'})
+articleView = new ArticleView()
